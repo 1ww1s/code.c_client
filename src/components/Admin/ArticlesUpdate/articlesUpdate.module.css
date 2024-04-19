@@ -1,0 +1,53 @@
+.container{
+    width: 100%;
+}
+
+.title{
+    margin-top: 30px;
+    margin-bottom: 6px;
+}
+
+.articles{
+    position: relative;
+    width: 70%;
+    min-height: 300px;
+}
+
+.article{
+    background-color: #1E1E1E;
+    display: flex;
+    color:white;
+    border-radius: 6px;
+    align-items: center;
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.hr{
+    margin: 40px 10px 0 10px;
+}
+
+.sendButton{
+    margin: 40px auto;
+    width: 300px;
+}
+
+
+.loader{
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width:950px) {
+    .articles{
+        width: 100%;
+    }
+    .article{
+        margin-top: 16px;
+        padding: 16px;
+    }
+    .sendButton{
+        width: 220px;
+    }
+}

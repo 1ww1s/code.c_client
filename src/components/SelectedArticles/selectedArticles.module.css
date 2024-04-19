@@ -1,0 +1,21 @@
+.container a{
+    text-decoration: none;
+    color: black;
+    line-height: 26px;
+    font-size: 16px;
+}
+
+.container h2::after{
+    content: '★';
+    margin: 0 4px;
+    color: #6C84FF;
+	text-shadow: 1px 1px #6C84FF;
+}
+
+@media(max-width:950px){
+    .container a{
+        line-height: 26px;
+        font-size: 16px;
+    }
+
+}

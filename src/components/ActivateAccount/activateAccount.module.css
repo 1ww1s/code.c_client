@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    width: 100%;
+}
+
+.sendActivation{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.buttonActivated{
+    width: 260px;
+}
+
+.loader{
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width:950px) {
+    .buttonActivated{
+        width: 240px;
+    }
+}
+
+@media (max-width:650px) {
+    .sendActivation{
+        flex-direction: column;
+    }
+}

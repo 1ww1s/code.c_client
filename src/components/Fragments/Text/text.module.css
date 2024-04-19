@@ -1,0 +1,17 @@
+.containerImportant{
+    background-color: #CDD5FE;
+    padding: 20px;
+    margin-top: 20px;
+    overflow-x: hidden;
+}
+
+.containerText{
+    margin-top: 20px;
+    padding: 0;
+}
+
+.containerSolution{
+    /* background-color: #F2F2F2; */
+    color: red;
+    margin-top: 20px;
+}

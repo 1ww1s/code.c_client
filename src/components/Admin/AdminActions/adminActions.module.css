@@ -1,0 +1,85 @@
+.container{
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+
+.actions{
+    border-radius: 16px;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #1E1E1E;
+    width: 660px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+
+.articlesSign{
+    display: flex;
+    align-items: center;
+    
+}
+.arrow{
+    transform: rotate(-90deg);
+    width: 20px;
+    height: 20px;
+    margin: 5px 0 0 16px;
+    z-index: -999;
+}
+
+
+.homeSign{
+    display: flex;
+    align-items: center;
+}
+
+.a{
+    text-decoration: none;
+    display: flex;
+    height: 50px;
+    margin: 10px;
+    width: 300px;
+}
+
+.buttonText{
+    color: white;
+    font-size: 15px;
+    font-family: 'Montserrat Regular'; 
+}
+
+.buttonShowModal{
+    margin: 10px;
+    width: 300px;
+    height: 50px;   
+}
+
+
+@media (max-width:950px) {
+    .actions{
+        width: 100%;
+    }
+    .buttonText{
+        font-size: 14px;
+    }
+}
+
+@media (max-width:450px) {
+    .actions{
+        width: 100%;
+        align-items: center;
+    }
+    .a{
+        height: 40px;
+        margin: 8px;
+        width: 260px;
+    }
+    .buttonShowModal{
+        height: 40px;
+        margin: 8px;
+        width: 260px;
+    }
+    .buttonText{
+        font-size: 13px;
+    }
+}

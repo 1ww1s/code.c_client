@@ -1,0 +1,14 @@
+.select{
+    margin: 6px 0 6px 0;
+    width: 200px;
+    height: 24px;
+    padding-left: 6px;
+    outline: none;
+    border: 1px solid #A9A9A9;
+    border-radius: 2px;
+}
+
+.option:hover{
+    border: 3px solid green;
+  
+}

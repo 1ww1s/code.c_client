@@ -1,0 +1,21 @@
+.crumb{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 6px 0 0 0;
+    padding: 0;
+
+}
+.crumb li{
+    display: flex;
+}
+
+.crumb a span{
+    font-family: 'Montserrat Medium'; 
+}
+
+.crumb span{
+    font-size: 14px;
+    line-height: 22px;
+    color: black;
+    font-family: 'Montserrat Regular'; 
+}

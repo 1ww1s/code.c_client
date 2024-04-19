@@ -1,0 +1,56 @@
+.container{
+    overflow-x: hidden;
+}
+
+.codeBox{
+    display: flex;
+    border-bottom: 2px solid black;
+    overflow: auto;
+}
+
+
+.numbDiv{
+    text-align: center;
+    border-right: 1px solid black;
+    padding: 0 4px 10px 4px;
+}
+
+.numb{
+    font-size: 14px;
+    margin: 0;
+    height: 20px;      /**/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span, code{
+    line-height: 20px; /**/ 
+    font-size: 14px;
+}
+
+pre{
+    padding-left: 8px;
+    margin: 0;
+    line-height: 1;
+}
+
+@media (max-width:950px) {
+    pre{
+        padding-left: 4px;
+    }
+    .numb{
+        font-size: 12px;
+        margin: 0;
+        height: 18px;      /**/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    span, code{
+        line-height: 18px; /**/ 
+        font-size: 12px;
+    }
+    
+}

@@ -1,0 +1,67 @@
+.container{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: 100vw;
+    z-index: 99999;
+    top:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat Regular'; 
+    box-sizing: border-box;
+    padding: 40px;
+    max-width: 800px;
+    width: 70vw;   
+    border-radius: 6px;
+    min-height: 200px;
+    background-color: white;
+    overflow: auto;
+}
+
+.input{
+    height: 40px;
+    width: 70%;
+}
+
+.sendRole{
+    display: flex;
+    position: relative;
+    width: 260px;
+    height: 50px;
+    margin-top: 40px;
+    align-self: center;
+}
+
+
+.loader{
+    width: 16px;
+    height: 16px;
+}
+
+.error{
+    height: 22px;
+}
+
+@media (max-width:950px) {
+    .content{
+        width: 90vw;   
+        padding: 20px 20px 40px 20px;
+    }
+    .input{
+        height: 36px;
+        width: 100%;
+    }
+    .sendRole{
+        display: flex;
+        width: 220px;
+        height: 30px;
+    }
+    
+}

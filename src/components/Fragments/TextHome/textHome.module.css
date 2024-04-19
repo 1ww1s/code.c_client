@@ -1,0 +1,11 @@
+.h2{
+    font-family: 'Montserrat Bold';
+    margin-bottom: 0;
+    font-size: 32px;
+}
+
+@media(max-width:950px) {
+    .h2{
+        font-size: 22px;
+    }
+}

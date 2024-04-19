@@ -1,0 +1,189 @@
+.container{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: 100vw;
+    z-index: 99999;
+    top:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.content{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-family: 'Montserrat Regular'; 
+    max-width: 800px;
+    width: 90vw;   
+    padding: 40px;
+    border-radius: 6px;
+    min-height: 460px;
+    background-color: white;
+    overflow: auto;
+}
+
+.loaderDiv{
+    width: 70%;
+    height: 200px;
+    position: relative;
+}
+
+.users{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 10px;
+    height: 200px;
+    background-color: aliceblue;
+}
+.user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.selectedUserTitle{
+    margin: 0;
+    padding: 0;
+}
+
+.notUserList{
+    margin: 0;
+    padding: 0;
+}
+
+.user.selected {
+    box-sizing: border-box;
+}
+
+.user.selected {
+    outline: 1px solid black;
+}
+
+.email{
+    width: 70%;
+    font-size: 12px;
+    font-family: 'Montserrat Bold';
+}
+
+.roles{
+    width: 30%;
+    display: flex;
+}
+
+.roles details{
+    display: flex;
+    width: 100%;
+}
+
+.roles ul{
+    margin-top: 6px;
+}
+
+.roles label{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.roles details ul li{
+    padding: 0;
+    margin: 0;
+}
+.roles details ul li:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+.roles, .roles span, .roles p {
+    font-size: 12px;
+}
+
+
+.input{
+    height: 40px;
+    width: 70%;
+}
+
+.roleSelected{
+    margin-top: 10px;
+}
+
+.sendRole{
+    display: flex;
+    position: relative;
+    width: 260px;
+    height: 50px;
+    margin-top: 40px;
+    align-self: center;
+}
+
+
+.loaderUserList{
+    display: flex;
+    align-self: center;
+    width: 16px;
+    height: 16px;
+}
+
+.loader{
+    width: 16px;
+    height: 16px;
+}
+
+.error{
+    height: 22px;
+}
+
+
+@media (max-width:950px) {
+    .content{
+        padding: 40px 16px;
+    }
+    .input{
+        height: 36px;
+        width: 100%;
+    }
+    .users{
+        width: 100%;
+    }
+    .sendRole{
+        display: flex;
+        width: 220px;
+        height: 30px;
+    }
+    .button{
+        font-size: 6px;
+    }
+}
+
+@media (max-width:600px) {
+    .user{
+        flex-direction: column;
+        align-items: start;
+    }
+    .email{
+        width: 100%;
+        font-size: 12px;
+        font-family: 'Montserrat Bold';
+    }
+    .roles{
+        width: 100%;
+        margin-top: 6px;
+        display: flex;
+    }
+}

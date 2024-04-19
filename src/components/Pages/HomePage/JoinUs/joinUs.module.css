@@ -1,0 +1,183 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    width: 100%;
+    color: white;
+    background-color: #1E1E1E;
+}
+
+.wrapper{
+    display: flex;
+    width: 1060px;
+    padding: 40px 0;
+    max-width: 95%;
+    flex-direction: column;
+}
+
+.titleDiv{
+    margin-bottom: 20px;
+}
+
+.title{
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    padding: 10px 40px;
+    font-size: 28px;
+    letter-spacing: 2px;
+    border: 3px solid white;
+}
+
+.content{
+    width: 100%;
+    display: flex;
+}
+
+.texts{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+
+.elem:nth-child(2n + 1){
+    width: 20%;
+}
+
+.elem{
+    flex: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+.elem li {
+    font-size: 18px;
+    line-height: 28px;
+}
+.elem p {
+    font-size: 18px;
+    line-height: 28px;
+}
+.text{
+    display: block;
+    width: 70%;
+}
+
+.image{
+    width: 100%;
+}
+
+.codeDiv{
+    flex: 50%; 
+    padding: 0;
+    display: flex;
+    justify-content: end;
+}
+
+.code{
+    position: relative;
+    display: flex;  
+    background-image: none;
+}
+.image > h2{
+    margin: 0;
+}
+
+.registration{
+    align-items: center;
+    display: flex;
+    position: relative;
+    margin-top:-50px;
+}
+
+.actions{
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    width: 260px;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    margin: 10px 0 0 30px;
+    width: 260px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #4A68FF;
+    color: white;
+    border: 0;
+}
+.buttonText{
+    font-size: 12px;
+}
+
+.arrow{
+    display: flex;  
+    position: relative;
+    height: 90px;
+    width: 50px;
+    left: 20px;
+}
+
+
+@media(max-width:950px) {
+    .wrapper{
+        padding: 0;
+    }
+    .content{
+        flex-direction: column;
+    }
+    .title{
+        font-size: 16px;
+        padding: 6px 20px;
+        letter-spacing: 4px;
+        border: 2px solid white;
+    }
+    .image{
+        display: none;
+    }
+    .texts{
+        width: 100%;
+    }
+    .elem li {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    .elem p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    .input{
+        height: 40px;
+        width: 220px;
+    }
+    
+    .button{
+        margin: 10px 0 0 30px;
+        height: 40px;
+        width: 220px;
+    }
+    
+    .arrow{
+        display: flex;  
+        position: relative;
+        height: 70px;
+        width: 40px;
+        left: 16px;
+    }
+}

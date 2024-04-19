@@ -1,0 +1,35 @@
+.container{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+.search{
+    height: 40px;
+    margin-top: 6px;
+}
+
+.title{
+    margin-top: 30px;
+    margin-bottom: 0;
+ }
+
+
+.filter{
+    width: 40%;
+}
+
+.articles{
+    position: relative;
+    width: 70%;
+    min-height: 300px;
+}
+
+@media (max-width:950px) {
+    .filter{
+        width: 100%;
+    }
+    .articles{  
+        width: 100%;
+    }
+}

@@ -1,0 +1,81 @@
+.container{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: 100vw;
+    z-index: 99999;
+    top:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat Regular'; 
+    box-sizing: border-box;
+    max-width: 800px;
+    width: 70vw;   
+    border-radius: 6px;
+    min-height: 200px;
+    background-color: white;
+    overflow: auto;
+    padding: 40px;
+}
+
+.input{
+    margin-top: 6px;
+    width: 70%;
+    height: 40px;
+}
+
+.sign{
+    margin: 30px 0 0 0;
+}
+.sendSection{
+    display: flex;
+    position: relative;
+    width: 260px;
+    height: 50px;
+    margin-top: 40px;
+    align-self: center;
+}
+.button{
+    width: 220px;
+    display: flex;
+    align-self: flex-end;
+    margin-top: 20px;
+}
+
+.loader{
+    width: 16px;
+    height: 16px;
+}
+
+.error{
+    height: 22px;
+}
+
+
+@media (max-width:950px) {
+    .content{
+        width: 90vw;   
+        padding: 20px 20px 40px 20px;
+    }
+    .input{
+        height: 36px;
+        width: 100%;
+    }
+    .sendSection{
+        display: flex;
+        width: 220px;
+        height: 30px;
+    }
+    .section{
+        border-radius: 6px;
+        width: 100%;
+        padding: 16px;
+    }
+}

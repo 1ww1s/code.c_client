@@ -1,0 +1,19 @@
+.h2{
+    font-size: 18px;
+    font-family: 'Montserrat Regular';
+}
+
+.lastAticles{
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+}
+
+.lastAticles ul {
+    font-size: 15px;
+    line-height: 24px;
+}
+.lastAticles a{
+    font-family: 'Montserrat Regular';
+    color: black;
+}

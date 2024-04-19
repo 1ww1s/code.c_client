@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import userStore from './store/UserStore';
+import ArticleStore from './store/ArticleStore';
+import SectionStore from './store/SectionStore';
+import MessageStore from './store/MessageStore';
+import LoaderPage from './store/LoaderPage';
+import HomeStore from './store/HomeStore'
+import ArticlesLast from './store/ArticlesLast'
+
+export const Context = createContext(null)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+
+root.render( 
+    <Context.Provider
+        value={{
+            user: new userStore(),
+            article: new ArticleStore(),
+            section: new SectionStore(),
+            message: new MessageStore(),
+            loaderPage: new LoaderPage(),
+            homePage: new HomeStore(),
+            articlesLast: new ArticlesLast()
+        }}
+    >
+
+        
+
+        <App />
+
+
+    </Context.Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

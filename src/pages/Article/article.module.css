@@ -1,0 +1,46 @@
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    top:0;
+    right: 0;
+    overflow: hidden;
+}
+
+.wrapper{
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    width: 1220px;
+    max-width: 95%;
+    margin-top: 20px;
+    padding-bottom: 60px;
+}
+.content{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.article{
+    width: 70%;
+}
+
+.sidebar{
+    width: 29%;
+}
+
+@media(max-width:950px){
+    .wrapper{
+        padding-top: 65px;
+    }
+    .article{
+        width: 100%;
+    }
+    .sidebar{
+        display: none;
+    }
+}

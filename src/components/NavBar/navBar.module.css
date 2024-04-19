@@ -1,0 +1,281 @@
+.container{
+    width: 100%;
+    height: 65px;
+    top:0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #1E1E1E;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.container.home{
+    background-color: transparent;
+    box-shadow: none;
+    position: absolute;
+    z-index: 111;
+}
+
+.wrapper{
+    position: relative;
+    width: 1220px;
+    max-width: 95%;
+    display: flex;
+    align-items: center;
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.navigationBox{
+    display: flex;
+}
+
+.navigation{
+    display: flex;
+}
+
+.nav{
+    display: flex;
+}
+
+.navList{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    list-style-type: none;
+}
+.navList.home{
+    padding: 0;
+}
+
+
+.navList > li {
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    width: 120px;
+    padding-bottom: 0;
+}
+
+.navList.home > li:nth-child(1){
+    width: 160px;
+    justify-content: start;
+}
+
+.navList > li a {
+    font-family: 'Montserrat Regular';
+    display: inline;
+    color: white;
+    position: relative;
+    text-decoration: none;
+}
+
+
+.navList.home > li:nth-child(1) a{
+    font-family: 'Montserrat SemiBold';
+}
+.navList.home > li:nth-child(1) a::after{
+    width: 100%;
+    left: 0;
+}
+
+.navList > li a:hover {
+    color: #6C84FF;
+}
+
+.navList.home > li a:hover{
+    color: white;
+    font-family: 'Montserrat SemiBold';
+}
+
+.navList > .highlight a{
+    color: #6C84FF;
+}
+
+.navList > li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    display: block;
+    background: none repeat scroll 0 0 transparent;
+    height: 1px;
+    width: 0;
+    background: #6C84FF;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+.navList.home > li a::after{
+    background: white;
+}
+
+.navList > li a:hover::after { 
+	width: 100%; 
+	left: 0; 
+}
+
+.articlesLast{
+    display: none;
+}
+.navHome{
+    width: 160px;
+    height: 30px;
+    position: relative;
+    align-items: center;
+    display: flex;
+}
+.navHomeBox{
+    display: inline;
+    color: white;
+    text-decoration: none;
+}
+.navHome a{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat SemiBold';
+    font-size: 26px;
+    color: white;
+}
+
+.navHome .adminPanel a::after{
+    content: "админ панель";
+    position: absolute;
+    display: block;
+    font-size: 11px;
+    bottom: -8px;
+    color: #6C84FF;
+    font-family: 'Montserrat Regular'; 
+    align-self: flex-end;
+}
+
+
+.acc{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    height: 30px;
+}
+
+.accA{
+    font-family: 'Montserrat Regular';
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+}
+
+
+.accImg{
+    width: 16px;
+    padding-right: 3px;
+}
+
+
+@media(max-width:950px){
+    .container{
+        position: fixed;
+        height: 65px;
+        width: 100%;
+        z-index: 12222;
+        top:0;
+        left: 0;
+    }
+    .container.home{
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    .burger{
+        background-image: url('../../assets/menu.png');
+        background-repeat: no-repeat;
+        background-size: 42px;
+        background-position: 0 center;
+        width: 65px;
+        height: 65px;
+        z-index: 99;
+        left: 0;
+    }
+    .navigation{
+        flex-direction: column;
+        width: 100%;
+    }
+    .navigationBox{
+        position: fixed;
+        flex-direction: column;
+        box-sizing: border-box;
+        z-index: 19;
+        top:0;
+        left: -260px;
+        height: 100vh;
+        width: 260px;
+        padding: 0 2.5vw;
+        padding-top: 65px;
+        background-color: #1E1E1E;
+    }
+    .navigationBox.open{
+        left: 0;
+    }
+    .darken.open{
+        position: absolute;
+        z-index: 11;
+        top:0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .hr{
+        height: 1px;
+        width: 100%;
+        background-color: #6C84FF;
+    }
+    .nav{
+        flex-direction: column;
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        z-index: 99;
+    }
+    .navList{
+        flex-direction: column;
+        align-items: start;
+
+    }
+    .navList > li{
+        justify-content: start;
+        font-size: 20px;
+        height: 36px;
+    }
+    .navList > li a::after {
+        height: 1.5px;
+    }
+    .navHome {
+        height: 100%;
+    }
+    .navHomeBox{
+        display: flex;
+        height: 48px;
+        align-items: center;
+    }
+    .navHomeBox.adminPanel{
+        height: 80px;
+        padding-bottom: 12px;
+    }
+    .navHome .adminPanel a::after{
+        bottom: 26px;
+    }
+    .navList.home > li:nth-child(1){
+        height: 48px;
+        align-items: center;
+    }
+    .articlesLast{
+        display: block;
+        color: white;
+    }
+    .articlesLast ul a{
+        color: white;
+    }
+}

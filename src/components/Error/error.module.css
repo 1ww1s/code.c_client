@@ -1,0 +1,13 @@
+.sign_error {
+    font-family: 'Montserrat Medium';
+    font-size: 12px;
+    color: red;
+    align-self: flex-start;
+    justify-content: start;
+}
+
+@media (max-width:700px) {
+    .sign_error {
+        font-size: 10px;
+    }
+}
