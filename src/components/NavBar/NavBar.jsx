@@ -88,13 +88,13 @@ const NavBar = function(){
                                         {  
                                             location.pathname === HOME_ROUTE
                                                     ?
-                                            section.sections.map((section, ind) => 
+                                            section.sections?.map((section, ind) => 
                                                 <li className={ sectionName === section.value ? classes.highlight : '' } key={ind}>
                                                     <Link to={section.value === 'home' ? '/' :`/articles/${section.value}`}>{section.name}</Link>
                                                 </li>
                                             )
                                                     :
-                                            section.sections.filter((_, ind) => ind !== 0)
+                                            section.sections?.filter((_, ind) => ind !== 0)
                                             .map((section, ind) => 
                                                 <li className={ sectionName === section.value ? classes.highlight : '' } key={ind}>
                                                     <Link to={`/articles/${section.value}`}>{section.name}</Link>
