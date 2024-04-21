@@ -9,7 +9,6 @@ import ErrorHandling from "../../error/ErrorHandling";
 import { getTitlesArticlesSection } from "../../http/SiteAPI";
 import NavBar from "../../components/NavBar/NavBar";
 import Bottom from "../../components/Pages/Bottom/Bottom";
-import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 
 const Articles = function(){
     const { message } = useContext(Context)

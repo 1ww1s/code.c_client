@@ -106,12 +106,12 @@ const NavBar = function(){
                             }
                         </div>
                         <div className={classes.articlesLast}>
-                        <div className={classes.hr} /> 
-                        {
-                            !isAdmin
-                                &&
-                            <ArticlesLast />
-                        }
+                            <div className={classes.hr} /> 
+                            {
+                                !isAdmin
+                                    &&
+                                <ArticlesLast />
+                            }
                         </div>
                     </div>
                     <div ref={refAcc} className={classes.acc}>

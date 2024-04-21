@@ -24,7 +24,7 @@ const Articleslist = function({sectionName, articles, loaderDiv}){
                 {
                     articles.length === 0
                         ?
-                    <p clasName={classes.a}>Статей не обнаружено</p>
+                    <p className={classes.a}>Статей не обнаружено</p>
                         :
                     <ol>
                         {articles.map((article, ind) =>
