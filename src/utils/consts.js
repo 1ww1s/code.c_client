@@ -4,6 +4,8 @@ export const ARTICLE_ROUTE = '/articles/:section/:article'
 export const LOGIN_ROUTE = '/login'
 export const REGISTRATION_ROUTE = '/registration'
 export const PERSONAL_ACCOUNT_ROUTE = '/my/main'
+export const LOGIN_REMINDER_ROUTE =  '/login/reminder'
+export const LOGIN_RECOVER_ROUTE =  '/login/recover/:link'
 
 
 export const ADMIN_ROUTE = '/admin'

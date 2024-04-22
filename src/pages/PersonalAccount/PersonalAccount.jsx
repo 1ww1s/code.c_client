@@ -24,6 +24,7 @@ const PersonalAccount = () => {
                 user.isAuth 
                     &&
                 <div className={classes.content}>
+                    
                     <NavBar />
                     <div className={classes.wrapper}>
                         <PersonalAcc />

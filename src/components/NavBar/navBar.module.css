@@ -57,12 +57,13 @@
     display: flex;
     font-size: 15px;
     justify-content: center;
-    width: 120px;
+    margin-left: 60px;
     padding-bottom: 0;
 }
 
 .navList.home > li:nth-child(1){
-    width: 160px;
+    width: 130px;
+    margin-left: 0px;
     justify-content: start;
 }
 
@@ -89,7 +90,6 @@
 
 .navList.home > li a:hover{
     color: white;
-    font-family: 'Montserrat SemiBold';
 }
 
 .navList > .highlight a{
@@ -120,7 +120,7 @@
     display: none;
 }
 .navHome{
-    width: 160px;
+    width: 130px;
     height: 30px;
     position: relative;
     align-items: center;
@@ -209,6 +209,7 @@
         padding: 0 2.5vw;
         padding-top: 65px;
         background-color: #1E1E1E;
+        transition: left 500ms ease-out;
     }
     .navigationBox.open{
         left: 0;
@@ -218,15 +219,31 @@
         flex-direction: column;
         width: 100%;
     }
-    .darken.open{
+    .darken{
         position: absolute;
-        z-index: 11;
+        display: none;
         top:0;
         left: 0;
         height: 100vh;
         width: 100vw;
+        opacity: 0;
         background-color: rgba(0, 0, 0, 0.6);
     }
+    .darken.open{
+        display: block;
+        z-index: 11;
+        animation: show 500ms ease-out forwards;
+    }
+
+
+  @keyframes show {   
+    from {     
+      opacity: 0; 
+    }   
+    to {
+      opacity: 1;
+     }
+  }
 
     .hr{
         height: 1px;
@@ -249,9 +266,10 @@
         justify-content: start;
         font-size: 20px;
         height: 36px;
+        margin-left: 0px;
     }
-    .navList > li a::after {
-        height: 1.5px;
+    .navList:not(.home) > li a::after {
+        display: none;
     }
     .navHome {
         height: 48px;

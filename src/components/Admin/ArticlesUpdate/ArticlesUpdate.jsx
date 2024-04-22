@@ -27,7 +27,7 @@ const ArticlesUpdate = function(){
             return
         }
         getSection()
-        .then(sections => section.setSections(sections.filter(s => s.value != 'home')))
+        .then(sections => section.setSections(sections))
         .catch(e => ErrorHandling(e, message))
     }, [])
 
@@ -66,7 +66,7 @@ const ArticlesUpdate = function(){
                         disabled={article.isLoading}
                         value={selectedSection}
                         defaultValue={'Раздел не выбран'}
-                        options={section.sections}
+                        options={section.sections.filter(s => s.value !== 'home')}
                         onChange={(value) => setSelectedSection(value)}
                     />
                 </span>

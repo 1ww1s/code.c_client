@@ -1,12 +1,13 @@
 import React from 'react';
 import classes from './myInput.module.css'
 
-const MyInput = (props) => {
+const MyInput = ({refInput, ...props}) => {
 
 
 
     return (
-        <input                
+        <input            
+            ref={refInput} 
             onFocus={(e)=>{
                 e.target.classList.toggle(classes.active)
             }}

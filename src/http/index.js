@@ -28,7 +28,6 @@ $authHost.interceptors.response.use((config) => {  // callback = config, есл�
                 withCredentials: true
             });  
             localStorage.setItem('token', data.data.accessToken)
-            console.log('refresh')
             return $authHost.request(originalRequest);
         }
         catch(e) {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { observer } from "mobx-react-lite";
 import classes from './admin.module.css'
 import { useLocation, Outlet } from "react-router-dom";
@@ -12,16 +12,20 @@ const Admin = () => {
 
     const location = useLocation()
     const {message, article} = useContext(Context)
-    let container = null
+    const refContainer = useRef() 
+
     useEffect(() => {
         window.scrollTo(0,0)
         article.clear()
-        if(!container) container = document.querySelector(`.${classes.container}`)
-        container.onpointerdown = null
+        refContainer.current.onpointerdown = null
     }, [location.pathname])
 
+    useEffect(() => {
+        message.setMessage('')
+    }, [])
+
     return (
-        <div className={classes.container}>
+        <div ref={refContainer} className={classes.container}>
             {message.message && <Message /> } 
             <NavBar />
             <div className={classes.wrapper}>

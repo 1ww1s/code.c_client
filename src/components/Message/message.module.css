@@ -1,16 +1,16 @@
 .container{
-    width: 100%;
-    color: white;
-    animation: show 0.5s ease-out;
-    top: 0;
-    left: 0;
+    position: relative;
     display: flex;
     box-sizing: border-box;
+    width: 100%;
+    top: 0;
+    left: 0;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: relative;
+    color: white;
     background-color: #228B22;
+    animation: show 0.5s ease-out forwards;
 }
 
 .container.error{
@@ -31,7 +31,7 @@
 }
 
 .slider{
-    animation: thumb 4s ease-in-out;
+    animation: thumb 4s ease-in-out forwards;
     height: 3px;
     position: absolute;
     bottom: 0;

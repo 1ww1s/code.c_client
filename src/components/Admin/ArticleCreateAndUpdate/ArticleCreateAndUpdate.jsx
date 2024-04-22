@@ -51,7 +51,6 @@ const ArticleCreateAndUpdate = () => {
     }, [])
 
     function click(fragment){
-        console.log(999, article.section)
         fragment.setStatus('change')
     }
 

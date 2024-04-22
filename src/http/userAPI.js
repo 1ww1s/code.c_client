@@ -13,6 +13,15 @@ export const login = async (email, password) => {
     return data.data.user
 }
 
+export const reminder = async function(email){
+    const res = await $authHost.post('/user/auth/reminder', {email})
+    return res.data
+}
+
+export const recover = async function(link, password){
+    const res = await $authHost.post('/user/auth/recover', {link, password})
+    return res.data
+}
 
 export const addSelectedArticle = async function(email, title){
     await $authHost.post('/user/selectedArticle/add', {email, title})

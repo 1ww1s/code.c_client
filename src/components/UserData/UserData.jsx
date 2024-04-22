@@ -2,17 +2,19 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import classes from './userData.module.css'
 import {Context} from '../..'
 import {observer} from 'mobx-react-lite'
-import { addSelectedArticle, removeSelectedArticle, updateUserpic } from "../../http/userAPI";
+import { updateUserpic } from "../../http/userAPI";
 import { Link } from "react-router-dom";
 import Loader from "../UI/loader/Loader";
 import ErrorHandling from "../../error/ErrorHandling";
 import { ADMIN_ROUTE } from "../../utils/consts";
 
-const UserData = function({title}){
+const UserData = function(){
 
     const { user, message } = useContext(Context)
     const [loader, setLoader] = useState(false)
+    const [messageError, setMessageError] = useState('')
     const refUserpicImg = useRef()
+    const refContainer = useRef()
 
     function readFile(file, onEnd){
         const reader = new FileReader()
@@ -23,13 +25,15 @@ const UserData = function({title}){
                 user.setUser({...user.user, userpic})
             }
             catch(e){
-                ErrorHandling(e, message)
+                if(e.response?.status === 400){
+                    setMessageError(e.response.data.message)
+                }
+                else ErrorHandling(e, message)
             }
             finally{
                 onEnd()
             }
         }
-
         reader.readAsDataURL(file)
     }
 
@@ -41,16 +45,32 @@ const UserData = function({title}){
         img.onload = () => setLoader(false)
     }, [user.user])
 
+    function removeMessageError(){
+        setMessageError('')
+        refContainer.current.removeEventListener('click', removeMessageError)
+    }
+
+    function validationSize(file){
+        let isOk = true;
+        if(file.size / 1e6 > 2) {
+            isOk = false;
+            setMessageError('*Максимальный размер изображения 2МБ')
+            refContainer.current.addEventListener('click', removeMessageError)
+        }
+        return isOk
+    }
+
     function setUserpic(e){
         const file = e.target.files[0];
         if(!file) return
+        if(!validationSize(file)) return
         user.setLoading(true)
         setLoader(true)
-        readFile(file, () => {setLoader(false) ;user.setLoading(false)})
+        readFile(file, () => {setLoader(false); user.setLoading(false)})
     }
 
     return (
-        <div className={classes.container}>
+        <div ref={refContainer} className={classes.container}>
             <div className={classes.inputUserpic}>
                 <label className={classes.inputUserpicLabel}>
                     <div disabled={(user.isLoading || loader || !user.user.userpic)} className={classes.userpic}>
@@ -68,6 +88,7 @@ const UserData = function({title}){
                         
                     <input disabled={user.isLoading || loader} onChange={setUserpic} hidden type='file' accept=".jpg,.jpeg,.png" />
                 </label>
+                <div className={classes.userpicError}><span>{messageError}</span></div>
             </div>
             <div className={classes.email}>
                 email: {user.user.email}

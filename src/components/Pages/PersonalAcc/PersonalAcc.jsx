@@ -7,7 +7,7 @@ import { Context } from "../../..";
 import {  LOGIN_ROUTE } from "../../../utils/consts";
 import { useNavigate } from 'react-router-dom'
 import ErrorHandling from "../../../error/ErrorHandling";
-import { logout, sendActivation, updateUserpic } from "../../../http/userAPI";
+import { logout } from "../../../http/userAPI";
 import SelectedArticles from "../../SelectedArticles/SelectedArticles";
 import UserData from "../../UserData/UserData";
 import ActivateAccount from "../../ActivateAccount/ActivateAccount";

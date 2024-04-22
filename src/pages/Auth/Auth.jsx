@@ -6,10 +6,11 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 import { useNavigate } from 'react-router-dom';
 import { PERSONAL_ACCOUNT_ROUTE } from '../../utils/consts';
+import Message from '../../components/Message/Message';
 
 const Auth = () => {
 
-    const {user} = useContext(Context)
+    const {user, message} = useContext(Context)
     const router = useNavigate()
 
     useEffect(() => {
@@ -17,9 +18,13 @@ const Auth = () => {
         if(user.isAuth) router(PERSONAL_ACCOUNT_ROUTE)
     }, [])
     
+    useEffect(() => {
+        message.setMessage('')
+    }, [])
 
     return (
         <div className={classes.container}>
+            {message.message && <Message /> } 
             <NavBarAuth />
             <div className={classes.content}>
                 <FormAuth />

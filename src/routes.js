@@ -14,7 +14,7 @@ import Update from './components/Admin/Update/Update'
 
 const {LOGIN_ROUTE, REGISTRATION_ROUTE, HOME_ROUTE, ADMIN_ROUTE, ADMIN_ARTICLES_UPDATE_ROUTE, ADMIN_HOME_ARTICLES_UPDATE_ROUTE, ADMIN_ARTICLE_CREATE_ROUTE, 
     ADMIN_ARTICLE_LIST_ROUTE, ADMIN_ARTICLE_UPDATE_ROUTE, ADMIN_HOME_ARTICLE_LIST_ROUTE, ADMIN_HOME_ARTICLE_UPDATE_ROUTE, ADMIN_HOME_ARTICLE_CREATE_ROUTE,
-    SECTION_ARTICLES_ROUTE, ARTICLE_ROUTE, PERSONAL_ACCOUNT_ROUTE} = require('./utils/consts')  // PERSONAL_ACCOUNT_ROUTE
+    SECTION_ARTICLES_ROUTE, ARTICLE_ROUTE, PERSONAL_ACCOUNT_ROUTE, LOGIN_REMINDER_ROUTE, LOGIN_RECOVER_ROUTE} = require('./utils/consts')  // PERSONAL_ACCOUNT_ROUTE
     
     
 export const publicRouters = [
@@ -33,6 +33,16 @@ export const publicRouters = [
             },
             {
                 path: REGISTRATION_ROUTE,
+                element: <AUTH />
+            },
+            ,
+            {
+                path: LOGIN_REMINDER_ROUTE,
+                element: <AUTH />
+            },
+            ,
+            {
+                path: LOGIN_RECOVER_ROUTE,
                 element: <AUTH />
             },
             {
