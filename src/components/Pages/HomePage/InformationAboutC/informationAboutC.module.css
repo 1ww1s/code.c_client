@@ -104,6 +104,7 @@
     .text > p {
         font-size: 14px;
         line-height: 22px;
+        width: 90%;
     }
     .numb{
         font-size: 14px;
@@ -111,6 +112,7 @@
     }
     .rowElems:nth-last-child(3) .elemBox:nth-child(2){
         background-size: 48px;
+        background-position: 95% 100%;
     }
     .arrow{
         margin: -110px 0 0 60px;
