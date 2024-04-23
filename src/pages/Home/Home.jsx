@@ -66,7 +66,7 @@ const Home = () => {
                     &&
                 <div className={classes.content}>  
                     <NavBar />
-                    {getBlocks(homePage.articles)}
+                    {homePage.articles && getBlocks(homePage.articles)}
                 </div>
             }
             <Bottom />
