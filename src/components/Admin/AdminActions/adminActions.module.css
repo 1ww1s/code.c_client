@@ -62,6 +62,12 @@
     .buttonText{
         font-size: 14px;
     }
+    .buttonShowModal{
+        width: 280px;
+    }
+    .a{
+        width: 280px;
+    }
 }
 
 @media (max-width:450px) {
@@ -70,14 +76,14 @@
         align-items: center;
     }
     .a{
-        height: 40px;
+        height: 44px;
         margin: 8px;
-        width: 260px;
+        width: 265px;
     }
     .buttonShowModal{
-        height: 40px;
+        height: 44px;
         margin: 8px;
-        width: 260px;
+        width: 265px;
     }
     .buttonText{
         font-size: 13px;

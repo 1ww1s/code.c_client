@@ -4,7 +4,6 @@
     align-items: center;
     box-sizing: border-box;
     border-radius: 30px;
-    padding: 20px;
     width: 100%;
     font-size: 14px;
     height: 50px;
@@ -18,4 +17,19 @@
 
 .container:hover{
     background-color: rgba(0, 0, 0, 1);
+}
+
+@media(max-width:950px){
+    .container{
+        height: 45px;
+        font-size: 13px;
+    }
+}
+
+
+@media(max-width:450px){
+    .container{
+        height: 40px;
+        font-size: 12px;
+    }
 }

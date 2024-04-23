@@ -42,5 +42,11 @@
 @media (max-width:950px) {
     .textarea{
         width: 100%;
-    }
+        font-size: 13px;
+    }   
+}
+@media (max-width:450px) {
+    .textarea{
+        font-size: 12px;
+    }   
 }

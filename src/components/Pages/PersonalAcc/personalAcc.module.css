@@ -1,18 +1,4 @@
-.container{
 
-}
-
-.activated{
-    display: flex;
-    box-sizing: border-box;
-    width: 600px;
-    border-radius: 20px;
-    padding: 30px;
-    margin-top: 30px;
-    color: white;
-    background-color: #1E1E1E;
-    overflow: auto;
-}
 
 .selectedArticles{
     margin-top: 30px;

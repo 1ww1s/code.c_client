@@ -42,6 +42,15 @@ td {
     border: 1px solid black;
 }
 
+
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
 ul{
     box-sizing: border-box;
 }
@@ -57,6 +66,25 @@ ul{
     }
     h2{
         font-size: 18px;
+    }
+    option{
+        font-size: 14px;
+    }
+}
+
+@media(max-width:450px){
+    p{
+        font-size: 13px;
+        line-height: 20px;
+    }
+    h1{
+        font-size: 20px;
+    }
+    h2{
+        font-size: 16px;
+    }
+    option{
+        font-size: 13px;
     }
 }
 

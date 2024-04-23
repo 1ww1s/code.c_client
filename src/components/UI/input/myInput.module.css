@@ -21,3 +21,10 @@
         padding: 4px 4px 4px 16px;
     }
 }
+
+@media (max-width:450px) {
+    .container{
+        font-size: 13px;
+        padding: 3px 3px 3px 12px;
+    }
+}

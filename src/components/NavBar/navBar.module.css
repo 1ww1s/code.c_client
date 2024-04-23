@@ -207,7 +207,7 @@
         padding: 0 2.5vw;
         padding-top: 65px;
         background-color: #1E1E1E;
-        transition: left 500ms ease-out;
+        transition: left 400ms ease-out;
     }
     .navigationBox.open{
         left: 0;
@@ -230,7 +230,7 @@
     .darken.open{
         display: block;
         z-index: 11;
-        animation: show 500ms ease-out forwards;
+        animation: show 400ms ease-out forwards;
     }
 
 
@@ -295,5 +295,12 @@
     }
     .articlesLast ul a{
         color: white;
+    }
+    .accA{
+        font-size: 14px;
+    }
+    .accImg{
+        width: 15px;
+        padding-right: 2px;
     }
 }

@@ -1,6 +1,13 @@
 .container{
     display: flex;
-    width: 100%;
+    box-sizing: border-box;
+    width: 600px;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 30px;
+    color: white;
+    background-color: #1E1E1E;
+    overflow: auto;
 }
 
 .sendActivation{
@@ -21,10 +28,15 @@
 @media (max-width:950px) {
     .buttonActivated{
         width: 240px;
+        height: 50px;
     }
 }
 
 @media (max-width:650px) {
+    .container{
+        width: 100%;
+        padding: 30px 20px;
+    }
     .sendActivation{
         flex-direction: column;
     }

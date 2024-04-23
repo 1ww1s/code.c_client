@@ -17,7 +17,7 @@
     flex-direction: column;
     box-sizing: border-box;
     font-family: 'Montserrat Regular'; 
-    max-width: 800px;
+    z-index: 99999;
     width: 80vw;   
     padding: 40px;
     border-radius: 6px;
@@ -152,6 +152,7 @@
 
 @media (max-width:950px) {
     .content{
+        width: 90vw;   
         padding: 40px 16px;
     }
     .input{

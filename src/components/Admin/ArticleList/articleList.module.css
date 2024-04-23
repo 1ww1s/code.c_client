@@ -27,9 +27,15 @@
 
 @media (max-width:950px) {
     .filter{
-        width: 100%;
+        width: 50%;
     }
     .articles{  
+        width: 100%;
+    }
+}
+
+@media (max-width:600px) {
+    .filter{
         width: 100%;
     }
 }
