@@ -27,7 +27,7 @@ const Text = function({fragment, ...props}){
             fragment.type ==='solution' && classes.containerSolution }
         >
             <h2 id={fragment.title}>{fragment.title}</h2>
-            <span style={{whiteSpace:"pre-wrap"}} dangerouslySetInnerHTML={{__html: render(fragment.text)}}></span>
+            <span dangerouslySetInnerHTML={{__html: render(fragment.text)}}></span>
         </div>
     )
 }

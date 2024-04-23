@@ -17,7 +17,7 @@ const TextHome = function({fragment, classNameText, ...props}){
             {...props}
         >
             { fragment.title && <h2 className={classes.h2}>{fragment.title}</h2> }
-            <span style={{whiteSpace:"pre-wrap"}} className={classNameText} dangerouslySetInnerHTML={{__html: render(fragment.text)}}></span>
+            <span className={classNameText} dangerouslySetInnerHTML={{__html: render(fragment.text)}}></span>
         </div>
     )
 }
