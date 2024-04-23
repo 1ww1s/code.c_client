@@ -6,6 +6,7 @@ import 'highlight.js/styles/vs.css';
 
 const Code = function({fragment, ...props}){
     const md = markdownit({
+        html: true,
         highlight: function (str, lang) {
 
           if (lang && hljs.getLanguage(lang)) {
@@ -15,7 +16,7 @@ const Code = function({fragment, ...props}){
                      '</code></pre>';
             } catch (__) {}
           }
-      
+          
           return '<pre><code class="c">' + md.utils.escapeHtml(str) + '</code></pre>';
         }
     });

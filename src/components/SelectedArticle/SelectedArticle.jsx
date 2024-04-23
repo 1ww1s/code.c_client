@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import classes from './selectedArticle.module.css'
 import {Context} from '../..'
 import {observer} from 'mobx-react-lite'
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { addSelectedArticle, removeSelectedArticle } from "../../http/userAPI";
 
 const SelectedArticle = function({title}){

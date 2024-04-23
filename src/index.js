@@ -25,12 +25,7 @@ root.render(
             articlesLast: new ArticlesLast()
         }}
     >
-
-        
-
         <App />
-
-
     </Context.Provider>
 );
 

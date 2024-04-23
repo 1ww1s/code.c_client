@@ -11,6 +11,8 @@ import ErrorHandling from "../../error/ErrorHandling"
 import { Fragment } from "../../models/Fragment"
 import NavBar from "../../components/NavBar/NavBar"
 import Bottom from "../../components/Pages/Bottom/Bottom"
+import { abortController, getControllerSignal, reinitController } from "../../http/abortController"
+import axios from "axios"
 
 const Article = function(){
 
@@ -21,11 +23,22 @@ const Article = function(){
     const [sidebar, setSidebar] = useState([])
     const location = useLocation()
 
+    useEffect(() => {
+        window.scrollTo(0,0)
+        abortController()   // для прерывания предыдущих запросов
+        reinitController()
+        preload()
+    }, [location.pathname])
+
+    let isRepeatRequest;
     async function preload(){
         try{
+            setLoaderDiv(true)
+            isRepeatRequest = false;
             article.clear()
+            setSidebar([])
             const title = articleName.replace(/_/g, " ");
-            const articleData = await getArticle(title)
+            const articleData = await getArticle(title, {signal: getControllerSignal()})
             article.setTitle(articleData.title)
             const titles = []
             articleData.fragments.map((fragment, ind) => {
@@ -41,22 +54,20 @@ const Article = function(){
             setSidebar(titles)
         }
         catch(e){
-            if(e?.response.status === 404){
+            if(e.response?.status === 404){
                 setIsNotFound(true)
             }
             else{
+                if(axios.isCancel(e))  isRepeatRequest = true;
                 ErrorHandling(e, message)
             }
         }
         finally{
-            setLoaderDiv(false)
+            if(!isRepeatRequest) setLoaderDiv(false)
         }
     }
 
-    useEffect(() => {
-        window.scrollTo(0,0)
-        preload()
-    }, [location.pathname])
+    
 
     return(
         <div className={classes.container}>

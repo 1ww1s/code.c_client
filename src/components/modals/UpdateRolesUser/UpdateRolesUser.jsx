@@ -8,6 +8,7 @@ import { Context } from "../../..";
 import Loader from "../../UI/loader/Loader";
 import ErrorHandling from "../../../error/ErrorHandling";
 import { AddRoleUser, getRoles, getUsers, updateRolesUser } from "../../../http/adminAPI";
+import axios from "axios";
 
 
 const UpdateRolesUser = function({onHide}){
@@ -28,7 +29,12 @@ const UpdateRolesUser = function({onHide}){
     }, [])
 
     async function getUsersFunc(email){
+        let isRepeatRequest = false;
         try{
+            if(!email) {
+                setUsers([])
+                return
+            }
             setLoadingUserList(true)
             const res = await getUsers(email)  
             setUsers(res)
@@ -38,12 +44,13 @@ const UpdateRolesUser = function({onHide}){
                 setErrorMessage(e.response.data?.message)
             }
             else{
-                onHide()
+                if(axios.isCancel(e)) isRepeatRequest = true
+                else onHide()
                 ErrorHandling(e, message)
             }
         }
         finally{
-            setLoadingUserList(false)
+            if(!isRepeatRequest)setLoadingUserList(false)
         }
     }
 
@@ -103,7 +110,11 @@ const UpdateRolesUser = function({onHide}){
         <div onClick={(e) => e.stopPropagation()} className={classes.content}>
             <h1>Добавить роль</h1>
             <div className={classes.input}>
-                <MyInput onPointerDown={e => setErrorMessage('')} placeholder="Email пользователя" value={email} onChange={(e) => {setEmail(e.target.value); getUsersFunc(e.target.value)}} />
+                <MyInput 
+                    onPointerDown={e => setErrorMessage('')} 
+                    placeholder="Email пользователя" 
+                    value={email} onChange={(e) => {setEmail(e.target.value); getUsersFunc(e.target.value)}} 
+                />
             </div>
             <div className={classes.error}>
                 { errorMessage && <Error messageError={errorMessage} /> }

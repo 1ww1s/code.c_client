@@ -1,5 +1,4 @@
 import {$authHost, $host} from './index'
-import {jwtDecode} from 'jwt-decode'
 
 export const registration = async (email, password) => {
     const data = await $host.post('/user/auth/registration', {email, password})
@@ -34,13 +33,17 @@ export const removeSelectedArticle = async function(email, title){
 
 // await new Promise(resolve => setTimeout(resolve, 4000)) 
 
-export const logout = async () => {
-    await $authHost.get('/user/auth/logout')
+export const logout = async (abortController) => {
+    await $authHost.get('/user/auth/logout', {
+        signal: abortController?.signal
+    })
     localStorage.removeItem('token')
 }
 
-export const sendActivation = async function(email){  
-    const res = await $authHost.post('/user/sendActivation', {email})
+export const sendActivation = async function(email, abortController){  
+    const res = await $authHost.post('/user/sendActivation', {email}, {
+        signal: abortController?.signal
+    })
     return res.data
 }
 
@@ -55,11 +58,11 @@ export const check = async() => {
     return res.data 
 }
 
-export const personalAccount = async () => {
-    await $authHost.get('/user/personalAccount')
-}
 
-export const updateUserpic = async(data) => { 
-    const user = await $authHost.post('/user/userpic/update', {data})
+
+export const updateUserpic = async(data, abortController) => { 
+    const user = await $authHost.post('/user/userpic/update', {data}, {
+        signal: abortController?.signal
+    })
     return user.data
 }

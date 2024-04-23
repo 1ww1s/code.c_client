@@ -6,6 +6,7 @@ import { sendActivation } from "../../http/userAPI";
 import MyButton from "../UI/button/MyButton";
 import Loader from "../UI/loader/Loader";
 import ErrorHandling from "../../error/ErrorHandling";
+import { getControllerSignal } from "../../http/abortController";
 
 const ActivateAccount = function(){
 
@@ -17,7 +18,7 @@ const ActivateAccount = function(){
         user.setLoading(true)
         setLoader(true)
         try{
-            const res = await sendActivation(user.user.email)
+            const res = await sendActivation(user.user.email, {signal: getControllerSignal()})
             setSentLink(res.message)
         }   
         catch(e) {

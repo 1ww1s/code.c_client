@@ -9,6 +9,8 @@ import ErrorHandling from "../../error/ErrorHandling";
 import { getTitlesArticlesSection } from "../../http/SiteAPI";
 import NavBar from "../../components/NavBar/NavBar";
 import Bottom from "../../components/Pages/Bottom/Bottom";
+import { abortController, getControllerSignal, reinitController } from "../../http/abortController";
+import axios from "axios";
 
 const Articles = function(){
     const { message } = useContext(Context)
@@ -19,18 +21,23 @@ const Articles = function(){
     
     useEffect(() => {
         window.scrollTo(0,0)
+        setLoaderDiv(true)
+        let isRepeatRequest = false
+        abortController()   // для прерывания предыдущих запросов
+        reinitController()  
         setIsNotFound(false)
-        getTitlesArticlesSection(section)
+        getTitlesArticlesSection(section, {signal: getControllerSignal()})
         .then(artcls => setArticles(artcls))
         .catch(e => {
-            if(e?.response.status === 404){
+            if(e.response?.status === 404){
                 setIsNotFound(true)
             }
             else{
+                if(axios.isCancel(e)) isRepeatRequest = true
                 ErrorHandling(e, message)
             }
         })
-        .finally(() => setLoaderDiv(false))
+        .finally(() => { if(!isRepeatRequest) setLoaderDiv(false) })
     }, [section])
 
     return(

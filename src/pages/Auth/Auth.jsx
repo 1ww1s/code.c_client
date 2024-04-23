@@ -7,6 +7,7 @@ import { Context } from '../..';
 import { useNavigate } from 'react-router-dom';
 import { PERSONAL_ACCOUNT_ROUTE } from '../../utils/consts';
 import Message from '../../components/Message/Message';
+import { abortController, reinitController } from '../../http/abortController';
 
 const Auth = () => {
 
@@ -19,6 +20,8 @@ const Auth = () => {
     }, [])
     
     useEffect(() => {
+        abortController()   // для прерывания предыдущих запросов
+        reinitController()
         message.setMessage('')
     }, [])
 

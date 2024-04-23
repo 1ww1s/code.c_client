@@ -7,6 +7,7 @@ import Message from "../../components/Message/Message";
 import Bottom from "../../components/Pages/Bottom/Bottom";
 import NavBar from "../../components/NavBar/NavBar";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
+import { abortController, reinitController } from "../../http/abortController";
 
 const Admin = () => {
 
@@ -21,8 +22,11 @@ const Admin = () => {
     }, [location.pathname])
 
     useEffect(() => {
+        abortController()   // для прерывания предыдущих запросов
+        reinitController()
         message.setMessage('')
     }, [])
+
 
     return (
         <div ref={refContainer} className={classes.container}>

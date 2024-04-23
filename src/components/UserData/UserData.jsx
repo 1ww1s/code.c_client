@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Loader from "../UI/loader/Loader";
 import ErrorHandling from "../../error/ErrorHandling";
 import { ADMIN_ROUTE } from "../../utils/consts";
+import { getControllerSignal } from "../../http/abortController";
 
 const UserData = function(){
 
@@ -21,12 +22,13 @@ const UserData = function(){
 
         reader.onload = async (e) => {
             try{
-                const userpic = await updateUserpic(reader.result)
+                const userpic = await updateUserpic(reader.result, {signal: getControllerSignal()})
                 user.setUser({...user.user, userpic})
             }
             catch(e){
                 if(e.response?.status === 400){
                     setMessageError(e.response.data.message)
+                    refContainer.current.addEventListener('click', removeMessageError)
                 }
                 else ErrorHandling(e, message)
             }
@@ -52,7 +54,7 @@ const UserData = function(){
 
     function validationSize(file){
         let isOk = true;
-        if(file.size / 1e6 > 2) {
+        if(file.size / 1e6 > 5) {
             isOk = false;
             setMessageError('*Максимальный размер изображения 2МБ')
             refContainer.current.addEventListener('click', removeMessageError)

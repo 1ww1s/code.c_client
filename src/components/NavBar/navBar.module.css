@@ -69,7 +69,6 @@
 
 .navList > li a {
     font-family: 'Montserrat Regular';
-    display: inline;
     color: white;
     position: relative;
     text-decoration: none;
@@ -120,14 +119,15 @@
     display: none;
 }
 .navHome{
+    position: relative;
+    display: flex;
     width: 130px;
     height: 30px;
-    position: relative;
     align-items: center;
-    display: flex;
 }
 .navHomeBox{
-    display: inline;
+    display: flex;
+    justify-content: end;
     color: white;
     text-decoration: none;
 }
@@ -139,17 +139,15 @@
     color: white;
 }
 
-.navHome .adminPanel a::after{
-    content: "админ панель";
+.navHome .adminPanel::after{
     position: absolute;
-    display: block;
+    display: flex;
+    content: "админ панель";
     font-size: 11px;
     bottom: -8px;
     color: #6C84FF;
     font-family: 'Montserrat Regular'; 
-    align-self: flex-end;
 }
-
 
 .acc{
     display: flex;
@@ -283,8 +281,8 @@
         height: 80px;
         padding-bottom: 12px;
     }
-    .navHome .adminPanel a::after{
-        bottom: 26px;
+    .navHome .adminPanel::after{
+        bottom: 8px;
     }
     .navList.home > li:nth-child(1){
         height: 48px;

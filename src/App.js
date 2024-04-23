@@ -8,7 +8,6 @@ import { getLastArticles, getSection } from './http/SiteAPI';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ErrorHandling from './error/ErrorHandling';
 import { adminRoutes, publicRouters } from './routes';
-import Message from './components/Message/Message';
 
 
 function App() {    
@@ -45,7 +44,6 @@ function App() {
     Router = [...Router, ...adminRoutes]
   }
   const router = createBrowserRouter(Router)
-
 
   return (
     <div className="App">

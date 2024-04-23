@@ -11,6 +11,7 @@ import { logout } from "../../../http/userAPI";
 import SelectedArticles from "../../SelectedArticles/SelectedArticles";
 import UserData from "../../UserData/UserData";
 import ActivateAccount from "../../ActivateAccount/ActivateAccount";
+import { getControllerSignal } from "../../../http/abortController";
 
 const PersonalAcc = function(){
 
@@ -38,7 +39,7 @@ const PersonalAcc = function(){
         showLoader(e)
         user.setLoading(true)
         try{
-            await logout()
+            await logout({signal: getControllerSignal()})
             user.setIsAuth(false)
             user.setUser({})
             router(LOGIN_ROUTE)

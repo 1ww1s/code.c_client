@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 
 export default class HomePage{
     constructor(){
-        this._articles = []
+        this._articles = null
         this._blockInd = -1
         makeAutoObservable(this)
     }
@@ -13,6 +13,10 @@ export default class HomePage{
 
     setBlockInd(ind){
         this._blockInd = ind
+    }
+
+    get itExists(){
+        return true
     }
 
     get blockInd(){

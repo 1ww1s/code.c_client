@@ -21,10 +21,10 @@
 	margin: 0 3px;
 	line-height: 1;
 	color: lightgray;
-    text-shadow: 1px 1px lightgray;
+    text-shadow: 1px 1px 1px lightgray;
 }
 .star.selected span{
     color: #6C84FF;
-	text-shadow: 1px 1px #6C84FF;
+	text-shadow: 1px 1px 1px #6C84FF;
 }
 

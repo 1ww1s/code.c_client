@@ -32,22 +32,16 @@ export const getRoles = async function(){
 }
 
 let controller = null;
-export const getUsers = async function(email){
-    try{   
-        if(controller){
-            controller.abort()
-        }
+export const getUsers = async function(email){ 
+    if(controller){
+        controller.abort()
+    }
     
-        controller = new AbortController()
-        const res = await $authHost.post('/admin/user/get', {email}, {
-            signal: controller.signal
-        })
-        return res.data
-    }
-    catch(e){
-        if(controller.signal.aborted) return []
-        else throw e
-    }
+    controller = new AbortController()
+    const res = await $authHost.post('/admin/user/get', {email}, {
+        signal: controller.signal
+    })
+    return res.data
 }
 
 export const updateRolesUser = async function(user){        
