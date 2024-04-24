@@ -16,12 +16,16 @@
     align-items: center;
     margin: 0;
 }
+.title span {
+    font-size: 14px;
+}
 .titleText{
     margin: 0 10px 0 0;
 }
 .details{
     margin: 0 20px;
     display: flex;
+    align-items: center;
 }
 .details span{
     margin-right: 4px;
@@ -59,15 +63,24 @@
 
 
 @media (max-width:950px) {
+    .title span {
+        font-size: 12px;
+    }
+    .details{
+        margin: 0 10px;
+    }
+    .titleInput{
+        width: 100%;
+        height: 36px;
+    }
+}
+
+@media (max-width:600px) {
     .title{
         flex-direction: column;
         align-items: start;
     }
     .details{
         margin: 0;
-    }
-    .titleInput{
-        width: 100%;
-        height: 36px;
     }
 }

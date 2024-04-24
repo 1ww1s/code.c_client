@@ -114,7 +114,7 @@ img[alt="img"]{
 
 @media (max-width:950px) {
     .title{
-        width: 100%;
+        width: 60%;
     }
     .sendButton{
         width: 240px;
@@ -122,5 +122,11 @@ img[alt="img"]{
     .addFragment{
         width: 200px;
         margin-top: 20px;
+    }
+}
+
+@media (max-width:600px) {
+    .title{
+        width: 100%;
     }
 }

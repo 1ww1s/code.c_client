@@ -2,3 +2,8 @@
     overflow: auto;
 }
 
+@media (max-width:450px){
+    .img{   
+        width: 100%  !important;   
+    }
+}
