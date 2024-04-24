@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import classes from './article.module.css'
 import { observer } from "mobx-react-lite"
 import { useParams, useLocation } from "react-router-dom"
@@ -23,12 +23,41 @@ const Article = function(){
     const [isNotFound, setIsNotFound] = useState(false)
     const [sidebar, setSidebar] = useState([])
     const location = useLocation()
+    const refBannerBottomScript = useRef()
+    const refBannerBottomDiv = useRef()
+
+    let isBannerShown;
+    function addBanner(){
+        const width = window.innerWidth;
+        window.addEventListener('resize', checkWidth)
+        if((width >= 950) || isBannerShown) return
+        isBannerShown = true;
+        refBannerBottomScript.current.innerHTML = `
+            window.yaContextCb.push(()=>{
+                Ya.Context.AdvManager.render({
+                    "blockId": "R-A-7815909-2",
+                    "type": "floorAd",
+                    "platform": "touch"
+                })
+            })
+        `
+        window.removeEventListener('resize', checkWidth)
+    }
+
+    function checkWidth(){
+        addBanner()
+    }
+    
+
+
 
     useEffect(() => {
         window.scrollTo(0,0)
+        isBannerShown = false
         abortController()   // для прерывания предыдущих запросов
         reinitController()
         preload()
+        addBanner()
     }, [location.pathname])
 
     let isRepeatRequest;
@@ -84,6 +113,9 @@ const Article = function(){
                         <div className={classes.sidebar}>
                             <Sidebar sidebar={sidebar} />
                             <SidebarBanner />
+                        </div>
+                        <div ref={refBannerBottomDiv} className={classes.bannerBottom}>
+                            <script ref={refBannerBottomScript}></script>
                         </div>
                     </div>
                 }

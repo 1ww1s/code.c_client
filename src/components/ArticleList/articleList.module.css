@@ -2,7 +2,10 @@
     min-height: 400px;
     width: 100%;
     position: relative;
-    margin-top: 20px;
+}
+
+.container h1{
+    margin-top: 10px;
 }
 
 .article a{

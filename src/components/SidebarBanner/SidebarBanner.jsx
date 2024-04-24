@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react"
+import classes from './sidebarBanner.module.css'
+
 
 const SidebarBanner = function(){
     const refBlock = useRef()
@@ -18,7 +20,7 @@ const SidebarBanner = function(){
     }, [])
 
     return (
-        <div ref={refBlock}>
+        <div ref={refBlock} className={classes.container}>
             <div id="yandex_rtb_R-A-7815909-1"></div>
         </div>
     )

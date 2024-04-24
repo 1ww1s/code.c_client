@@ -33,15 +33,25 @@
     width: 29%;
 }
 
+.bannerBottom{
+    display: none;
+}
+
 @media(max-width:950px){
     .wrapper{
         padding-top: 65px;
         margin-top: 15px;
+    }
+    .content{
+        flex-direction: column;
     }
     .article{
         width: 100%;
     }
     .sidebar{
         display: none;
+    }
+    .bannerBottom{
+        display: block;
     }
 }

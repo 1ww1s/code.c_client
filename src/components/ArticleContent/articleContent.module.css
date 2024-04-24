@@ -7,13 +7,16 @@
 }
 
 .header{
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .title{
-    margin-bottom: 0;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 .details{
