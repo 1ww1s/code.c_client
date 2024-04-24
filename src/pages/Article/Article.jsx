@@ -26,12 +26,7 @@ const Article = function(){
 
     const refBannerBottomDiv = useRef()
 
-    let isBannerShown;
-    function addBanner(){
-        const width = window.innerWidth;
-        window.addEventListener('resize', checkWidth)
-        if((width >= 950) || isBannerShown) return
-        isBannerShown = true;
+    function addMobileBanner(){
         const yaScript = document.createElement('script')
         yaScript.setAttribute('type', 'text/javascript')
         yaScript.innerHTML = `
@@ -43,21 +38,15 @@ const Article = function(){
                 })
             })
         `
-        refBannerBottomDiv.current.append(yaScript)
-        window.removeEventListener('resize', checkWidth)
-    }
-
-    function checkWidth(){
-        addBanner()
+        refBannerBottomDiv.current?.append(yaScript)
     }
     
     useEffect(() => {
         window.scrollTo(0,0)
-        isBannerShown = false
+        addMobileBanner()
         abortController()   // для прерывания предыдущих запросов
         reinitController()
         preload()
-        addBanner()
     }, [location.pathname])
 
     let isRepeatRequest;
