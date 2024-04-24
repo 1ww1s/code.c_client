@@ -10,12 +10,16 @@
 .wrapper{
     position: relative;
     width: 1220px;
+    margin-top: 20px;
     min-height: calc(100vh - 65px);
     max-width: 95%;
     padding-bottom: 60px;
 }
 
 @media(max-width:950px){
+    .wrapper{
+        margin-top: 15px;
+    }
     .container{
         padding-top: 65px;
     }

@@ -36,6 +36,7 @@
 @media(max-width:950px){
     .wrapper{
         padding-top: 65px;
+        margin-top: 15px;
     }
     .article{
         width: 100%;
