@@ -13,7 +13,7 @@
     overflow: hidden;
 }
 
-p, li{
+p, li, tr{
     font-size: 15px;
     line-height: 24px;
 }
@@ -57,7 +57,7 @@ ul{
 
 
 @media(max-width:950px){
-    p, li{
+    p, li, tr{
         font-size: 14px;
         line-height: 22px;
     }
@@ -73,7 +73,7 @@ ul{
 }
 
 @media(max-width:450px){
-    p, li{
+    p, li, tr{
         font-size: 13px;
         line-height: 20px;
     }

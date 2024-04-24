@@ -35,7 +35,7 @@ const ArticleContent = function({loaderDiv}){
             case 'code':
                 return <Code key={ind} fragment={fragment} />
             case 'img':
-                return <Image key={ind} fragment={fragment} />
+                return <Image styleImg = {{...fragment.style}} key={ind} fragment={fragment} />
         }
     }
     
