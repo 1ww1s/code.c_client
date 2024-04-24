@@ -13,6 +13,7 @@ import NavBar from "../../components/NavBar/NavBar"
 import Bottom from "../../components/Pages/Bottom/Bottom"
 import { abortController, getControllerSignal, reinitController } from "../../http/abortController"
 import axios from "axios"
+import SidebarBanner from "../../components/SidebarBanner/SidebarBanner"
 
 const Article = function(){
 
@@ -82,6 +83,7 @@ const Article = function(){
                         </div>
                         <div className={classes.sidebar}>
                             <Sidebar sidebar={sidebar} />
+                            <SidebarBanner />
                         </div>
                     </div>
                 }
