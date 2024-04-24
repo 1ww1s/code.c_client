@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import classes from './articleCreateAndUpdate.module.css'
-import classesAdmin from '../../../pages/Admin/admin.module.css'
 import { observer } from 'mobx-react-lite';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../../..'
 import Text from '../../Fragments/Text/Text';
 import Code from '../../Fragments/Code/Code';
@@ -12,6 +11,7 @@ import { ADMIN_ARTICLE_CREATE_ROUTE, ADMIN_ARTICLE_LIST_ROUTE, ADMIN_HOME_ARTICL
 ADMIN_HOME_ARTICLE_LIST_ROUTE, ADMIN_HOME_ARTICLE_UPDATE_ROUTE, ADMIN_ROUTE } from '../../../utils/consts';
 import CreateFragment from '../CreateFragment/CreateFragment';
 import ErrorHandling from '../../../error/ErrorHandling';
+import ErrorHandlingAdmin from '../../../error/ErrorHandlingAdmin';
 import MySelect from '../../UI/select/MySelect';
 import Loader from '../../UI/loader/Loader';
 import MyInput from '../../UI/input/MyInput';
@@ -33,11 +33,11 @@ const ArticleCreateAndUpdate = () => {
     const {article, message, section, user, homePage} = useContext(Context)
     const router = useNavigate()
 
-    // useEffect(() => {
-    //     if(!isCreate && (article.title === '') && !article.isLoading){
-    //         router(isHome ? ADMIN_HOME_ARTICLE_LIST_ROUTE : ADMIN_ARTICLE_LIST_ROUTE)   
-    //     } 
-    // }, [article.isLoading])
+    useEffect(() => {
+        if(!isCreate && (article.title === '') && !article.isLoading){
+            router(isHome ? ADMIN_HOME_ARTICLE_LIST_ROUTE : ADMIN_ARTICLE_LIST_ROUTE)   
+        } 
+    }, [article.isLoading])
 
     useEffect(() => { 
         if(isHome)  return 
@@ -141,7 +141,7 @@ const ArticleCreateAndUpdate = () => {
             router( isCreate ? ADMIN_ROUTE : isHome ? ADMIN_HOME_ARTICLE_LIST_ROUTE : ADMIN_ARTICLE_LIST_ROUTE)
         }
         catch(e){
-            ErrorHandling(e, message)
+            ErrorHandlingAdmin(e, message, user, router)
         }
         finally{
             user.setLoading(false)

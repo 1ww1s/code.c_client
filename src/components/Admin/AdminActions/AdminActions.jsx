@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import classes from './adminActions.module.css'
-import classesAdmin from '../../../pages/Admin/admin.module.css'
 import { observer } from 'mobx-react-lite';
 import MyButton from '../../UI/button/MyButton';
 import { Link, useLocation } from 'react-router-dom';
@@ -11,14 +10,15 @@ import AddSection from '../../modals/AddSection/AddSection';
 import UpdateSection from '../../modals/UpdateSection/UpdateSection';
 import AddRole from '../../modals/AddRole/AddRole';
 import UpdateRolesUser from '../../modals/UpdateRolesUser/UpdateRolesUser';
+import { Context } from '../../..';
 
 const AdminActions = () => {  
 
-    const location = useLocation()
     const [showAddSection, setShowAddSection] = useState(false)
     const [showUpdateSection, setShowUpdateSection] = useState(false)
     const [showRole, setShowRole] = useState(false)
     const [showRolesUser, setShowRolesUser] = useState(false)
+    const {user} = useContext(Context) 
 
     return (
         <div className={classes.container} >
@@ -45,46 +45,48 @@ const AdminActions = () => {
                     </div>        
                 </div>
             </div>
-            <div className={classes.otherActions}>
-                <div className={classes.homeSign}>
-                    <h1>Другие действия</h1>
-                    <img className={classes.arrow} src={arrow} />
+            { user.user.role.includes('admin') &&
+                <div className={classes.otherActions}>
+                    <div className={classes.homeSign}>
+                        <h1>Другие действия</h1>
+                        <img className={classes.arrow} src={arrow} />
+                    </div>
+                    <div className={classes.actions}>
+                        <div className={classes.button}>
+                            <div className={classes.buttonShowModal}>
+                                <MyButton onClick={(e) => setShowAddSection(true)}>
+                                    <span className={classes.buttonText}>Добавить раздел</span>
+                                </MyButton>
+                                {showAddSection && <AddSection  onHide = {() => setShowAddSection(false)} />}
+                            </div>
+                        </div>   
+                        <div className={classes.button}>
+                            <div className={classes.buttonShowModal}>
+                                <MyButton onClick={(e) => setShowUpdateSection(true)}>
+                                    <span className={classes.buttonText}>Изменить / удалить разделы</span>
+                                </MyButton>
+                                {showUpdateSection && <UpdateSection onHide = {() => setShowUpdateSection(false)} />}
+                            </div>
+                        </div>    
+                        <div className={classes.button}>
+                            <div className={classes.buttonShowModal}>
+                                <MyButton onClick={(e) => setShowRole(true)}>
+                                    <span className={classes.buttonText}>Добавить роль</span>
+                                </MyButton>
+                                {showRole && <AddRole onHide = {() => setShowRole(false)} />}
+                            </div>
+                        </div>                
+                        <div className={classes.button}>
+                            <div className={classes.buttonShowModal}>
+                                <MyButton onClick={(e) => setShowRolesUser(true)}>
+                                    <span className={classes.buttonText}>Изменить роли пользователю</span>
+                                </MyButton>
+                                {showRolesUser && <UpdateRolesUser onHide = {() => setShowRolesUser(false)} />}
+                            </div>
+                        </div>               
+                    </div>
                 </div>
-                <div className={classes.actions}>
-                    <div className={classes.button}>
-                        <div className={classes.buttonShowModal}>
-                            <MyButton onClick={(e) => setShowAddSection(true)}>
-                                <span className={classes.buttonText}>Добавить раздел</span>
-                            </MyButton>
-                            {showAddSection && <AddSection  onHide = {() => setShowAddSection(false)} />}
-                        </div>
-                    </div>   
-                    <div className={classes.button}>
-                        <div className={classes.buttonShowModal}>
-                            <MyButton onClick={(e) => setShowUpdateSection(true)}>
-                                <span className={classes.buttonText}>Изменить / удалить разделы</span>
-                            </MyButton>
-                            {showUpdateSection && <UpdateSection onHide = {() => setShowUpdateSection(false)} />}
-                        </div>
-                    </div>    
-                    <div className={classes.button}>
-                        <div className={classes.buttonShowModal}>
-                            <MyButton onClick={(e) => setShowRole(true)}>
-                                <span className={classes.buttonText}>Добавить роль</span>
-                            </MyButton>
-                            {showRole && <AddRole onHide = {() => setShowRole(false)} />}
-                        </div>
-                    </div>                
-                    <div className={classes.button}>
-                        <div className={classes.buttonShowModal}>
-                            <MyButton onClick={(e) => setShowRolesUser(true)}>
-                                <span className={classes.buttonText}>Изменить роли пользователю</span>
-                            </MyButton>
-                            {showRolesUser && <UpdateRolesUser onHide = {() => setShowRolesUser(false)} />}
-                        </div>
-                    </div>               
-                </div>
-            </div>
+            }
             <div className={classes.home}>
                 <div className={classes.homeSign}>
                     <h1>Домашняя страница</h1>

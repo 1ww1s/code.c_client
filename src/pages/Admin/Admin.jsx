@@ -29,7 +29,7 @@ const Admin = () => {
 
 
     return (
-        <div ref={refContainer} className={classes.container}>
+        <div  ref={refContainer} className={classes.container}>
             {message.message && <Message /> } 
             <NavBar />
             <div className={classes.wrapper}>

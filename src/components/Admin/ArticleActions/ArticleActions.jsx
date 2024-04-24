@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ADMIN_ARTICLE_LIST_ROUTE, ADMIN_ARTICLE_UPDATE_ROUTE, ADMIN_HOME_ARTICLE_UPDATE_ROUTE, HOME_ROUTE } from "../../../utils/consts";
 import { Fragment } from "../../../models/Fragment";
 import ErrorHandling from "../../../error/ErrorHandling";
+import ErrorHandlingAdmin from "../../../error/ErrorHandlingAdmin";
 import Loader from "../../UI/loader/Loader";
 import { getArticle } from "../../../http/SiteAPI";
 
@@ -56,7 +57,7 @@ const ArticleActions = function({articles, setArticles, title, activeButton, set
             message.setMessage(res.message)
         })
         .catch(e => {
-            ErrorHandling(e, message)
+            ErrorHandlingAdmin(e, message, user, router)
         })
         .finally(() => {
             setActiveButton('')

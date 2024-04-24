@@ -4,22 +4,24 @@ import MySelect from "../../UI/select/MySelect";
 import { updateArticles } from "../../../http/adminAPI";
 import { Context } from "../../..";
 import ErrorHandling from "../../../error/ErrorHandling";
+import ErrorHandlingAdmin from "../../../error/ErrorHandlingAdmin";
 import { observer } from "mobx-react-lite";
 import LoaderDiv from "../../LoaderDiv/LoaderDiv";
 import { Reorder } from 'framer-motion'
 import MyButton from "../../UI/buttonAdmin/MyButtonAdmin";
 import Loader from "../../UI/loader/Loader";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ADMIN_HOME_ARTICLES_UPDATE_ROUTE } from "../../../utils/consts";
 import { getSection, getTitlesArticlesSection } from "../../../http/SiteAPI";
  
 const ArticlesUpdate = function(){
 
     const [articles, setArticles] = useState([])
-    const {section, message, article} = useContext(Context)
+    const {section, message, article, user} = useContext(Context)
     const [selectedSection, setSelectedSection] = useState('')
     const location = useLocation()
     const isHome = location.pathname === ADMIN_HOME_ARTICLES_UPDATE_ROUTE
+    const router = useNavigate()
 
     useEffect(() => {
         if (isHome) {
@@ -49,7 +51,7 @@ const ArticlesUpdate = function(){
             message.setMessage(res.message)
         }
         catch(e){
-            ErrorHandling(e, message)
+            ErrorHandlingAdmin(e, message, user, router)
         }
         finally{
             article.setIsLoading(false)

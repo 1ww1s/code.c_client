@@ -3,12 +3,13 @@ import classes from './updateSection.module.css'
 import MyButton from "../../UI/button/MyButton";
 import { updateSection } from "../../../http/adminAPI";
 import { Context } from "../../..";
-import ErrorHandling from "../../../error/ErrorHandling";
+import ErrorHandlingAdmin from "../../../error/ErrorHandlingAdmin";
 import Loader from "../../UI/loader/Loader";
 import LoaderDiv from "../../LoaderDiv/LoaderDiv";
 import { getSection } from "../../../http/SiteAPI";
 import { Reorder } from 'framer-motion'
 import { observer } from "mobx-react-lite";
+import { useNavigate } from "react-router-dom";
 
 const UpdateSection = function({onHide}){
 
@@ -16,13 +17,14 @@ const UpdateSection = function({onHide}){
     const {user, message} = useContext(Context)
     const [errorMessage, setErrorMessage] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+    const router = useNavigate()
 
     function showErrorMessage(e){
         if(e.status === 409 || e.status === 400){
             setErrorMessage(e?.response.data.message)
         }
         else{
-            ErrorHandling(e, message)
+            ErrorHandlingAdmin(e, message, user, router)
             onHide()
         }
     }
@@ -50,7 +52,6 @@ const UpdateSection = function({onHide}){
             onHide()
         }
         catch(e){
-            console.log(1234)
             showErrorMessage(e)
         }
         finally{

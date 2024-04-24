@@ -7,8 +7,10 @@ import MyButton from "../../UI/button/MyButton";
 import { Context } from "../../..";
 import Loader from "../../UI/loader/Loader";
 import ErrorHandling from "../../../error/ErrorHandling";
-import { AddRoleUser, getRoles, getUsers, updateRolesUser } from "../../../http/adminAPI";
+import ErrorHandlingAdmin from "../../../error/ErrorHandlingAdmin";
+import { getRoles, getUsers, updateRolesUser } from "../../../http/adminAPI";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const UpdateRolesUser = function({onHide}){
@@ -21,11 +23,12 @@ const UpdateRolesUser = function({onHide}){
     const [roles, setRoles] = useState([])
     const [userSelected, setUserSelected] = useState('')
     const [previousSelectedEmail, setPreviousSelectedEmail] = useState(null)
+    const router = useNavigate()
 
     useEffect(() => {
         getRoles()
         .then(roles => setRoles(roles))
-        .catch(e => {ErrorHandling(e, message); onHide()})
+        .catch(e => {ErrorHandlingAdmin(e, message, user, router); onHide()})
     }, [])
 
     async function getUsersFunc(email){
@@ -46,7 +49,7 @@ const UpdateRolesUser = function({onHide}){
             else{
                 if(axios.isCancel(e)) isRepeatRequest = true
                 else onHide()
-                ErrorHandling(e, message)
+                ErrorHandlingAdmin(e, message, user, router)
             }
         }
         finally{
@@ -85,7 +88,7 @@ const UpdateRolesUser = function({onHide}){
                 }
                 else{
                     onHide()
-                    ErrorHandling(e, message)
+                    ErrorHandlingAdmin(e, message, user, router)
                 }
             }
             finally{

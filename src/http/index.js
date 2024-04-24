@@ -21,7 +21,7 @@ $authHost.interceptors.response.use((config) => {  // callback = config, есл�
 }, async (error) => {
     const originalRequest = error.config;
 
-    if((error.response?.status === 401 || error.response?.status === 403) && error.config && !originalRequest._isRetry) {
+    if((error.response?.status === 401) && error.config && !originalRequest._isRetry) {
         try {
             originalRequest._isRetry = true;
             const data = await axios.get(`${process.env.REACT_APP_SERVER_API_URL}/user/auth/refresh`,

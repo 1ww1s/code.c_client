@@ -5,15 +5,16 @@ import MyButton from "../../UI/button/MyButton";
 import { createSection } from "../../../http/adminAPI";
 import Error from "../../Error/Error";
 import { Context } from "../../..";
-import ErrorHandling from "../../../error/ErrorHandling";
+import ErrorHandlingAdmin from "../../../error/ErrorHandlingAdmin";
 import Loader from "../../UI/loader/Loader";
-
+import { useNavigate } from "react-router-dom";
 const AddSection = function({onHide}){
 
     const [name, setName] = useState('')
     const [value, setValue] = useState('')
     const {user, message} = useContext(Context)
     const [errorMessage, setErrorMessage] = useState('')
+    const router = useNavigate()
 
     async function addSection(){
         try{
@@ -29,7 +30,7 @@ const AddSection = function({onHide}){
             }
             else{
                 onHide()
-                ErrorHandling(e, message)
+                ErrorHandlingAdmin(e, message, user, router)
             }
         }
         finally{

@@ -33,8 +33,8 @@
         width: 100%;
     }
 }
-
 @media (max-width:600px) {
+    
     .filter{
         width: 100%;
     }

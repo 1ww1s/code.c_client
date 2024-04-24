@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext, useEffect, useState } from "react";
 import classes from './articleList.module.css'
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ADMIN_HOME_ARTICLE_LIST_ROUTE } from "../../../utils/consts";
 import LoaderDiv from "../../LoaderDiv/LoaderDiv";
 import { Context } from "../../..";
@@ -9,17 +9,18 @@ import { getTitlesArticles, getHomeTitlesArticles } from "../../../http/adminAPI
 import ArticleActions from "../ArticleActions/ArticleActions";
 import MyInput from "../../UI/input/MyInput";
 import { useArticles } from "../../../hooks/useArticles";
-import ErrorHandling from "../../../error/ErrorHandling";
+import ErrorHandlingAdmin from "../../../error/ErrorHandlingAdmin";
 
 const ArticleList = function(){
 
     const location = useLocation()
-    const {article, message} = useContext(Context)
+    const {article, message, user} = useContext(Context)
     const [articles, setArticles] = useState([])
     const [activeButton, setActiveButton] = useState('')  
     const [query, setQuery] = useState('')
     const searchedArticles = useArticles(articles, query)
     const isHome = location.pathname === ADMIN_HOME_ARTICLE_LIST_ROUTE
+    const router = useNavigate()
 
     async function loadArticles(){
         article.setIsLoading(true)
@@ -30,7 +31,7 @@ const ArticleList = function(){
             setArticles(artls)
         }
         catch(e){
-            ErrorHandling(e, message)
+            ErrorHandlingAdmin(e, message, user, router)
         }
         finally{
             article.setIsLoading(false)

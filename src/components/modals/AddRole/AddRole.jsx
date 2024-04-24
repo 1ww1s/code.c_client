@@ -3,17 +3,19 @@ import classes from './addRole.module.css'
 import MyInput from "../../UI/input/MyInput";
 import { Context } from "../../..";
 import { observer } from 'mobx-react-lite'
-import ErrorHandling from "../../../error/ErrorHandling";
+import ErrorHandlingAdmin from "../../../error/ErrorHandlingAdmin";
 import MyButton from "../../UI/button/MyButton";
 import Loader from "../../UI/loader/Loader";
 import { createRole } from "../../../http/adminAPI";
 import Error from "../../Error/Error";
+import { useNavigate } from "react-router-dom";
  
 const AddRole = function({onHide}){
 
     const [value, setValue] = useState('')
     const {user, message} = useContext(Context)
     const [errorMessage, setErrorMessage] = useState('')
+    const router = useNavigate()
 
     async function addRole(){
         try{
@@ -29,7 +31,7 @@ const AddRole = function({onHide}){
             }
             else{
                 onHide()
-                ErrorHandling(e, message)
+                ErrorHandlingAdmin(e, message, user, router)
             }
         }
         finally{
