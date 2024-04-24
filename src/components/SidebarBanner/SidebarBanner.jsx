@@ -21,7 +21,7 @@ const SidebarBanner = function(){
 
     return (
         <div ref={refBlock} className={classes.container}>
-            <div id="yandex_rtb_R-A-7815909-1"></div>
+            <div className={classes.banner} id="yandex_rtb_R-A-7815909-1"></div>
         </div>
     )
 }

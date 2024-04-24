@@ -23,7 +23,7 @@ const Article = function(){
     const [isNotFound, setIsNotFound] = useState(false)
     const [sidebar, setSidebar] = useState([])
     const location = useLocation()
-    const refBannerBottomScript = useRef()
+
     const refBannerBottomDiv = useRef()
 
     let isBannerShown;
@@ -32,7 +32,9 @@ const Article = function(){
         window.addEventListener('resize', checkWidth)
         if((width >= 950) || isBannerShown) return
         isBannerShown = true;
-        refBannerBottomScript.current.innerHTML = `
+        const yaScript = document.createElement('script')
+        yaScript.setAttribute('type', 'text/javascript')
+        yaScript.innerHTML = `
             window.yaContextCb.push(()=>{
                 Ya.Context.AdvManager.render({
                     "blockId": "R-A-7815909-2",
@@ -41,6 +43,7 @@ const Article = function(){
                 })
             })
         `
+        refBannerBottomDiv.current.append(yaScript)
         window.removeEventListener('resize', checkWidth)
     }
 
@@ -48,9 +51,6 @@ const Article = function(){
         addBanner()
     }
     
-
-
-
     useEffect(() => {
         window.scrollTo(0,0)
         isBannerShown = false
@@ -115,7 +115,6 @@ const Article = function(){
                             <SidebarBanner />
                         </div>
                         <div ref={refBannerBottomDiv} className={classes.bannerBottom}>
-                            <script ref={refBannerBottomScript}></script>
                         </div>
                     </div>
                 }
