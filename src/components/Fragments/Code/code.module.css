@@ -24,19 +24,19 @@
     align-items: center;
 }
 
-span, code{
+.container span, .container code{
     line-height: 20px; /**/ 
     font-size: 14px;
 }
 
-pre{
+.container pre{
     padding-left: 8px;
     margin: 0;
     line-height: 1;
 }
 
 @media (max-width:950px) {
-    pre{
+    .container pre{
         padding-left: 4px;
     }
     .numb{
@@ -48,7 +48,7 @@ pre{
         align-items: center;
     }
     
-    span, code{
+    .container span, .container code{
         line-height: 18px; /**/ 
         font-size: 12px;
     }
