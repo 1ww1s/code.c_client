@@ -48,7 +48,7 @@ const ArticleContent = function({loaderDiv}){
                 :
             <div>
                 <Helmet>
-                    <title>{article.title} </title>
+                    <title>{article.title} | Язык С</title>
                     <meta name="description" content={`Статья ${article.title}. ` + descriptionDefault} />
                 </Helmet>
                 <div className={classes.header}>
