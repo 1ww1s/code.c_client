@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import NavBarAuth from '../../components/NavBarAuth/NavBarAuth';
 import classes from './auth.module.css'
 import FormAuth from '../../components/FormAuth/FormAuth';

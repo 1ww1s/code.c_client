@@ -5,7 +5,7 @@ import classes from './articleList.module.css'
 import LoaderDiv from "../LoaderDiv/LoaderDiv";
 import { Context } from "../..";
 import { Helmet } from "react-helmet-async";
-import { descriptionDefault, titleDefault } from "../../utils/SEO";
+import { descriptionDefault } from "../../utils/SEO";
 
 
 const Articleslist = function({sectionName, articles, loaderDiv}){
@@ -21,14 +21,16 @@ const Articleslist = function({sectionName, articles, loaderDiv}){
     return (
         <div className={classes.container}>
             <Helmet>
-                <title>{name || ""} | {titleDefault}</title>
-                <meta name="description" content={`В разделе "${name || ""}" представлены следующие статьи: ${articles?.join(', ')}. ${descriptionDefault}`} />
+                <title>{name || ""}</title>
             </Helmet>
             <h1>{name || ""}</h1>
             { 
                 loaderDiv ? <LoaderDiv />
-                        :
+                :
                 <div>
+                <Helmet>
+                    <meta name="description" content={`В разделе "${name || ""}" представлены следующие статьи: ${articles?.join(', ')}. ${descriptionDefault}`} />
+                </Helmet>
                 {
                     articles.length === 0
                         ?

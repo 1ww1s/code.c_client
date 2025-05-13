@@ -34,6 +34,7 @@ const PersonalAccount = () => {
                     <Helmet>
                         <title>Мой аккаунт | Code-C</title>
                         <meta name="description" content="Персональный аккаунт на сайте Code-C" />
+                        <meta name="robots" content="noindex, nofollow" />
                     </Helmet>
                     <NavBar />
                     <div className={classes.wrapper}>

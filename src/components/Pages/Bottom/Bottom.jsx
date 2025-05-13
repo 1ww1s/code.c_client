@@ -1,4 +1,3 @@
-import React from "react";
 import classes from './bottom.module.css'
 import { observer } from "mobx-react-lite";
 import img from '../../../assets/bottomImage.png'
