@@ -8,6 +8,8 @@ import { getLastArticles, getSection } from './http/SiteAPI';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ErrorHandling from './error/ErrorHandling';
 import { adminRoutes, publicRouters } from './routes';
+import { Helmet } from 'react-helmet-async';
+import { descriptionDefault, titleDefault } from './utils/SEO';
 
 
 function App() {    
@@ -47,6 +49,10 @@ function App() {
 
   return (
     <div className="App">
+      <Helmet>
+        <title>{titleDefault}</title>
+        <meta name="description" content={descriptionDefault} />
+      </Helmet>
       {
         isLoading ? <LoaderPage /> : <RouterProvider router={router} />
       }

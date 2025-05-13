@@ -8,6 +8,7 @@ import MessageStore from './store/MessageStore';
 import LoaderPage from './store/LoaderPage';
 import HomeStore from './store/HomeStore'
 import ArticlesLast from './store/ArticlesLast'
+import { HelmetProvider } from 'react-helmet-async';
 
 export const Context = createContext(null)
 
@@ -25,7 +26,9 @@ root.render(
             articlesLast: new ArticlesLast()
         }}
     >
-        <App />
+        <HelmetProvider>
+            <App />
+        </HelmetProvider>
     </Context.Provider>
 );
 

@@ -11,6 +11,7 @@ import { observer } from 'mobx-react-lite';
 import Loader from '../UI/loader/Loader';
 import eye from '../../assets/eye.png'
 import eye_off from '../../assets/eye-off.png'
+import { Helmet } from 'react-helmet-async';
 
 const FormAuth = () => {
     const location = useLocation()
@@ -167,6 +168,11 @@ const FormAuth = () => {
     }
 
     return (
+        <>
+        <Helmet>
+            <title>{isLogin ? "Вход" : "Регистрация" }</title>
+            <meta name="description" content="Вход или регистрация на Code-C" />
+        </Helmet>
         <form onSubmit={click} className={classes.container}>
             <h1 className={classes.tittle}>
                     {isLogin && 'ВХОД В ЛИЧНЫЙ КАБИНЕТ'}
@@ -240,6 +246,7 @@ const FormAuth = () => {
                 }
             </div>
         </form>  
+        </>
     )
 }
 

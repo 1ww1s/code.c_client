@@ -1,5 +1,4 @@
 import { observer } from "mobx-react-lite";
-import React from "react";
 import Code from "../Fragments/Code/Code";
 import Image from "../Fragments/Image/Image";
 import Text from "../Fragments/Text/Text";
@@ -8,6 +7,8 @@ import { Context } from "../..";
 import classes from './articleContent.module.css'
 import SelectedArticle from '../SelectedArticle/SelectedArticle'
 import LoaderDiv from "../LoaderDiv/LoaderDiv";
+import { Helmet } from "react-helmet-async";
+import { descriptionDefault, titleDefault } from "../../utils/SEO";
 
 const ArticleContent = function({loaderDiv}){
 
@@ -41,6 +42,10 @@ const ArticleContent = function({loaderDiv}){
     
     return (
         <div className={classes.container}>
+            <Helmet>
+                <title>{article.title || "Статья"} | {titleDefault} </title>
+                <meta name="description" content={`Статья ${article.title}. ` + descriptionDefault} />
+            </Helmet>
             {loaderDiv ? <LoaderDiv />
                     :
                 <div>

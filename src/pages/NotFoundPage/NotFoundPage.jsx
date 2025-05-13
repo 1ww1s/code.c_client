@@ -4,6 +4,7 @@ import NotFound from "../../components/NotFound/NotFound";
 import NavBar from "../../components/NavBar/NavBar";
 import Bottom from "../../components/Pages/Bottom/Bottom";
 import { abortController, reinitController } from "../../http/abortController";
+import { Helmet } from "react-helmet-async";
 
 
 const NotFoundPage = function(){
@@ -16,6 +17,10 @@ const NotFoundPage = function(){
     
     return (
         <div className={classes.container}>
+            <Helmet>
+                <title>404 | Code-C</title>
+                <meta name="description" content="Страница или контент на странице не найден, ошибка 404" />
+            </Helmet>
             <NavBar />
             <div className={classes.wrapper}>
                 <NotFound />

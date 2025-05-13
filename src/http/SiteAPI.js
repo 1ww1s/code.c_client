@@ -30,5 +30,7 @@ export const getArticle = async function(title, abortController){
     const article = await $host.post('/site/article/get', {title}, {
         signal: abortController?.signal
     })
+    await new Promise(resolve => setTimeout(resolve, 4000))
+
     return article.data
 }

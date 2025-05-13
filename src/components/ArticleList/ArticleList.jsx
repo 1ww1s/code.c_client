@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import classes from './articleList.module.css'
 import LoaderDiv from "../LoaderDiv/LoaderDiv";
 import { Context } from "../..";
+import { Helmet } from "react-helmet-async";
+import { descriptionDefault, titleDefault } from "../../utils/SEO";
 
 
 const Articleslist = function({sectionName, articles, loaderDiv}){
@@ -14,9 +16,15 @@ const Articleslist = function({sectionName, articles, loaderDiv}){
         return article.replace(/ /g, '_')
     }   
 
+    const name = section.sections.find(section => section.value === sectionName)?.name
+
     return (
         <div className={classes.container}>
-            <h1>{(section.sections.find(section => section.value === sectionName))?.name}</h1>
+            <Helmet>
+                <title>{name || ""} | {titleDefault}</title>
+                <meta name="description" content={`В разделе "${name || ""}" представлены следующие статьи: ${articles?.join(', ')}. ${descriptionDefault}`} />
+            </Helmet>
+            <h1>{name || ""}</h1>
             { 
                 loaderDiv ? <LoaderDiv />
                         :
@@ -28,7 +36,16 @@ const Articleslist = function({sectionName, articles, loaderDiv}){
                         :
                     <ol>
                         {articles.map((article, ind) =>
-                            <li className={classes.article} key={ind}><p><Link to={`/articles/${sectionName}/${createUrl(article)}`}>{article}</Link></p></li>
+                            <li 
+                                className={classes.article} 
+                                key={ind}
+                            >
+                                <p>
+                                    <Link to={`/articles/${sectionName}/${createUrl(article)}`}>
+                                        {article}
+                                    </Link>
+                                </p>
+                            </li>
                         )}
                     </ol>
                 }

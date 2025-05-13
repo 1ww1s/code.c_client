@@ -8,6 +8,7 @@ import PersonalAcc from '../../components/Pages/PersonalAcc/PersonalAcc';
 import NavBar from '../../components/NavBar/NavBar';
 import Bottom from '../../components/Pages/Bottom/Bottom';
 import { abortController, reinitController } from '../../http/abortController';
+import { Helmet } from 'react-helmet-async';
 
 const PersonalAccount = () => {
 
@@ -30,7 +31,10 @@ const PersonalAccount = () => {
                 user.isAuth 
                     &&
                 <div className={classes.content}>
-                    
+                    <Helmet>
+                        <title>Мой аккаунт | Code-C</title>
+                        <meta name="description" content="Персональный аккаунт на сайте Code-C" />
+                    </Helmet>
                     <NavBar />
                     <div className={classes.wrapper}>
                         <PersonalAcc />

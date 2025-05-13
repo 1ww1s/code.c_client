@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { observer } from "mobx-react-lite";
 import classes from './admin.module.css'
 import { useLocation, Outlet } from "react-router-dom";
@@ -8,6 +8,7 @@ import Bottom from "../../components/Pages/Bottom/Bottom";
 import NavBar from "../../components/NavBar/NavBar";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import { abortController, reinitController } from "../../http/abortController";
+import {Helmet} from 'react-helmet-async'
 
 const Admin = () => {
 
@@ -27,9 +28,12 @@ const Admin = () => {
         message.setMessage('')
     }, [])
 
-
     return (
         <div  ref={refContainer} className={classes.container}>
+            <Helmet>
+                <title>Админ панель</title>
+                <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
             {message.message && <Message /> } 
             <NavBar />
             <div className={classes.wrapper}>
