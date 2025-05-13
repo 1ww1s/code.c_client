@@ -21,7 +21,7 @@ const Articleslist = function({sectionName, articles, loaderDiv}){
     return (
         <div className={classes.container}>
             <Helmet>
-                <title>{name ? (name + "на языке С") : ""}</title>
+                <title>{name ? (name + " на языке С") : ""}</title>
             </Helmet>
             <h1>{name || ""}</h1>
             { 
