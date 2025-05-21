@@ -1,18 +1,24 @@
 .container{
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
-    padding: 10px;
+    padding: 30px 10px;
     display: flex;
     flex-direction: column;
 }
 
 .h2{
     font-size: 18px;
+    margin-top: 0;
     font-family: 'Montserrat Regular';
 }
 
 .navPage ol{
     font-size: 15px;
-    line-height: 24px;
+    padding-left: 30px;
+}
+
+.navPage ol li{
+    padding-top: 6px;
+    line-height: 20px;
 }
 
 .navPage a {

@@ -13,6 +13,12 @@
     font-size: 15px;
     line-height: 24px;
 }
+
+.lastAticles ul li {
+    padding-top: 6px;
+    line-height: 20px;
+}
+
 .lastAticles a{
     font-family: 'Montserrat Regular';
     color: black;

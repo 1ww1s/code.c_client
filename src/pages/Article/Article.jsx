@@ -86,8 +86,6 @@ const Article = function(){
         }
     }
 
-    
-
     return(
         <div className={classes.container}>
             <NavBar />
